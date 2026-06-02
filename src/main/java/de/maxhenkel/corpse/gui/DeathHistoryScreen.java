@@ -124,9 +124,9 @@ public class DeathHistoryScreen extends ScreenBase {
                         .withClickEvent(new ClickEvent.SuggestCommand("/execute in " + getCurrentDeath().getDimension() + " run tp @s " + pos.getX() + " " + pos.getY() + " " + pos.getZ()))
                         .withHoverEvent(new HoverEvent.ShowText(Component.translatable("chat.coordinates.tooltip")))
                 );
-        minecraft.gui.getChat().addServerSystemMessage(Component.translatable("chat.corpse.teleport_death_location", teleport));
+        minecraft.gui.hud.getChat().addServerSystemMessage(Component.translatable("chat.corpse.teleport_death_location", teleport));
         minecraft.getSoundManager().play(SimpleSoundInstance.forUI(SoundEvents.UI_BUTTON_CLICK, 1F));
-        minecraft.setScreen(null);
+        minecraft.setScreenAndShow(null);
     }
 
     @Override
@@ -136,11 +136,11 @@ public class DeathHistoryScreen extends ScreenBase {
         Death death = getCurrentDeath();
 
         // Title
-        drawCenteredString(guiGraphics, title, guiLeft + xSize / 2, guiTop + 7, FontColorUtils.getFontColor(ChatFormatting.BLACK));
+        drawCenteredString(guiGraphics, title, guiLeft + xSize / 2, guiTop + 7, FontColorUtils.getFontColor(TextColor.BLACK));
 
         // Date
         MutableComponent date = Component.literal(getDate(death.getTimestamp()).getString()).withStyle(ChatFormatting.DARK_GRAY);
-        drawCenteredString(guiGraphics, date, guiLeft + xSize / 2, guiTop + 20, FontColorUtils.getFontColor(ChatFormatting.BLACK));
+        drawCenteredString(guiGraphics, date, guiLeft + xSize / 2, guiTop + 20, FontColorUtils.getFontColor(TextColor.BLACK));
 
         // Name
         drawLeft(guiGraphics,
@@ -216,11 +216,11 @@ public class DeathHistoryScreen extends ScreenBase {
     }
 
     public void drawLeft(GuiGraphicsExtractor guiGraphics, MutableComponent text, int height) {
-        guiGraphics.text(font, text, guiLeft + 7, height, FontColorUtils.getFontColor(ChatFormatting.BLACK), false);
+        guiGraphics.text(font, text, guiLeft + 7, height, FontColorUtils.getFontColor(TextColor.BLACK), false);
     }
 
     public void drawRight(GuiGraphicsExtractor guiGraphics, MutableComponent text, int height) {
-        guiGraphics.text(font, text, guiLeft + hSplit - font.width(text), height, FontColorUtils.getFontColor(ChatFormatting.BLACK), false);
+        guiGraphics.text(font, text, guiLeft + hSplit - font.width(text), height, FontColorUtils.getFontColor(TextColor.BLACK), false);
     }
 
     public Death getCurrentDeath() {

@@ -3,7 +3,7 @@ package de.maxhenkel.corpse.entities;
 import net.minecraft.client.renderer.entity.state.AvatarRenderState;
 import net.minecraft.client.renderer.entity.state.EntityRenderState;
 import net.minecraft.client.renderer.entity.state.SkeletonRenderState;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 
 public class CorpseRenderState extends EntityRenderState {
 
@@ -13,7 +13,7 @@ public class CorpseRenderState extends EntityRenderState {
     public boolean skeleton;
 
     public CorpseRenderState() {
-        skeletonRenderState.entityType = EntityType.SKELETON;
+        skeletonRenderState.entityType = EntityTypes.SKELETON;
     }
 
 }
